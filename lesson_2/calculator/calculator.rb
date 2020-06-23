@@ -17,7 +17,7 @@ def operation_to_message(operation)
   when '4'
     'Dividing'
   end
-end   
+end
 
 number1 = ''
 number2 = ''
@@ -34,21 +34,19 @@ MSG
 
 loop do
   prompt("Welcome to the calculator! Enter your name:")
-    name = Kernel.gets().chomp()
-  
-    if name.empty?()
-      prompt("Make sure to use a valid name.")
-    else
-      break
-    end
+  name = Kernel.gets().chomp()
+
+  if name.empty?()
+    prompt("Make sure to use a valid name.")
+  else
+    break
+  end
 end
 
 prompt("Hi, #{name}!")
 
 loop do
-  
   loop do
-    
     prompt("Enter the first number")
     number1 = Kernel.gets().chomp
 
@@ -60,7 +58,6 @@ loop do
   end
 
   loop do
-  
     prompt("Enter the second number")
     number2 = Kernel.gets().chomp()
 
@@ -69,22 +66,20 @@ loop do
     else
       prompt("That does not look like a valid number")
     end
-    
   end
 
   prompt(operation_prompt)
-  
+
   loop do
     operation = Kernel.gets().chomp()
-    
+
     if %w(1 2 3 4).include?(operation)
       break
     else
       prompt("Must choose 1, 2, 3 or 4")
     end
-    
   end
-  
+
   prompt("#{operation_to_message(operation)} the two numbers...")
 
   result =  case operation
@@ -96,11 +91,11 @@ loop do
               number1.to_i() * number2.to_i()
             when '4'
               number1.to_i() / number2.to_i()
-          
+
             end
 
   prompt("Your result is #{result}")
-  
+
   prompt("Do you want to perform another calculation?")
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')

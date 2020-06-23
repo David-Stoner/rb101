@@ -51,7 +51,7 @@ Style/EmptyLiteral:
   Description: Prefer literals to Array.new/Hash.new/String.new.
   Enabled: false
   
-Style/FrozenStringLiteralCOmment:
+Style/FrozenStringLiteralComment:
   Enabled: false
   Description: Require the addition of the frozen string literal comment.
   
@@ -260,7 +260,7 @@ Style/HashTransformValues:
   Description: 'Tries to use a simpler & faster call to transform_values where possible'
   Enabled: false
   
-Style/RedundantRefexpCharacterClass:
+Style/RedundantRegexpCharacterClass:
   Description: 'Check for unnecessary single-element Regexp character classes'
   Enabled: false
   
