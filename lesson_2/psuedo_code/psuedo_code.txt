@@ -1,0 +1,63 @@
+1. casual
+Ask the user for two integer numbers
+Add them together
+Display the result
+
+1. formal
+START
+
+GET number 1
+SET number 1
+
+GET number 2
+SET number 2
+
+SET result = number1 + number 2
+
+PRINT result
+
+END
+
+2. casual
+Given an array of strings
+Add all strings in the array into one combined string
+Display the result
+
+2. formal
+START
+
+# Given an array of strings called "strings"
+
+SET iterator = 0
+SET result = ""
+
+WHILE iterator < length of strings
+  SET result = result + value within strings at space iterator
+  SET iterator = iterator +1
+
+PRINT result
+
+END
+
+3. casual
+Given an array of integers
+Take every other value from the array and place it in a new array
+Display the result
+
+3. formal
+START
+
+# Given an array of integers called "array"
+
+SET iterator = 1
+SET result = []
+
+WHILE iterator < length of array
+  IF iterator % 2 equals 1
+    go to next iteration
+  ELSE
+    SET result add value at iterator to result
+
+PRINT result
+
+END
