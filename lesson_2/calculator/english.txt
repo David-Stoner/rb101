@@ -8,9 +8,5 @@
 "%{operation} the two numbers..."
 "Your result is %{result}"
 "Would you like to perform another operation?"
-"Thank you for using the calculator %{name}"
+"Thank you for using the calculator, %{name}"
 "What operation would you like to perform? %{line} 1) add %{line} 2) subtract %{line} 3) multiply %{line} 4) divide"
-  1) add
-  2) subtract
-  3) multiply
-  4) divide

@@ -5,7 +5,7 @@ end
 def get_line(filename, lineno)
   File.open(filename, 'r') do |getline|
     (lineno - 1).times { getline.gets }
-      getline.gets
+    getline.gets
   end
 end
 
@@ -38,46 +38,55 @@ number1 = ''
 number2 = ''
 name = ''
 operation = ''
-
-operation_prompt = get_line('calculatortext.txt', 12) % { line: "\n" }
+language = 'english.txt'
+language_prompt = ''
 
 loop do
-  prompt get_line('calculatortext.txt', 1)
+  prompt "1) for english, \n  2) para español"
+  language_prompt = gets.chomp
+  break if (language_prompt == '1') || (language_prompt == '2')
+end
+
+language = 'english.txt' if language_prompt == '1'
+language = 'spanish.txt' if language_prompt == '2'
+
+loop do
+  prompt get_line(language, 1)
   name = gets.chomp
 
   if name.empty?
-    prompt get_line('calculatortext.txt', 2)
+    prompt get_line(language, 2)
   else
     break
   end
 end
 
-prompt get_line('calculatortext.txt', 3) % { name: name }
+prompt get_line(language, 3) % { name: name }
 
 loop do
   loop do
-    prompt get_line('calculatortext.txt', 4)
+    prompt get_line(language, 4)
     number1 = gets.chomp
 
     if valid_number?(number1)
       break
     else
-      prompt get_line('calculatortext.txt', 5)
+      prompt get_line(language, 5)
     end
   end
 
   loop do
-    prompt get_line('calculatortext.txt', 6)
+    prompt get_line(language, 6)
     number2 = gets.chomp
 
     if valid_number?(number2)
       break
     else
-      prompt get_line('calculatortext.txt', 5)
+      prompt get_line(language, 5)
     end
   end
 
-  prompt operation_prompt
+  prompt get_line(language, 12) % { line: "\n" }
 
   loop do
     operation = gets.chomp
@@ -85,11 +94,11 @@ loop do
     if %w(1 2 3 4).include?(operation)
       break
     else
-      prompt get_line('calculatortext.txt', 7)
+      prompt get_line(language, 7)
     end
   end
 
-  prompt get_line('calculatortext.txt', 8) % { operation: op_to_msg(operation) }
+  prompt get_line(language, 8) % { operation: op_to_msg(operation) }
 
   result = case operation
            when '1'
@@ -102,11 +111,11 @@ loop do
              number1.to_f / number2.to_f
            end
 
-  prompt get_line('calculatortext.txt', 9) % { result: result }
+  prompt get_line(language, 9) % { result: result }
 
-  prompt get_line('calculatortext.txt', 10)
-  answer = gets.chomp
-  break unless answer.downcase.start_with? 'y'
+  prompt get_line(language, 10)
+  run = gets.chomp
+  break unless (run.downcase.start_with? 'y') || (run.downcase.start_with? 's')
 end
 
-prompt get_line('calculatortext.txt', 11) % { name: name }
+prompt get_line(language, 11) % { name: name }
