@@ -2,6 +2,13 @@ def prompt(message)
   puts "=> #{message}"
 end
 
+def get_line(filename, lineno)
+  File.open(filename, 'r' ) do |getline|
+     (lineno - 1).times {getline.gets}
+     getline.gets
+  end
+end
+
 def integer?(input)
   /^-?\d+$/.match(input)
 end
@@ -32,47 +39,41 @@ number2 = ''
 name = ''
 operation = ''
 
-operation_prompt = <<-MSG
-  What operation would you like to perform?
-  1) add
-  2) subtract
-  3) multiply
-  4) divide
-MSG
+operation_prompt = get_line('calculatortext.txt', 12) % { :line => "\n" }
 
 loop do
-  prompt "Welcome to the calculator! Enter your name:"
+  prompt get_line('calculatortext.txt', 1)
   name = gets.chomp
 
   if name.empty?
-    prompt "Make sure to use a valid name."
+    prompt get_line('calculatortext.txt', 2)
   else
     break
   end
 end
 
-prompt "Hi, #{name}!"
+prompt get_line('calculatortext.txt', 3) % { :name => name }
 
 loop do
   loop do
-    prompt "Enter the first number"
+    prompt get_line('calculatortext.txt', 4)
     number1 = gets.chomp
 
     if valid_number?(number1)
       break
     else
-      prompt "That does not look like a valid number"
+      prompt get_line('calculatortext.txt', 5)
     end
   end
 
   loop do
-    prompt "Enter the second number"
+    prompt get_line('calculatortext.txt', 6)
     number2 = gets.chomp
 
     if valid_number?(number2)
       break
     else
-      prompt "That does not look like a valid number"
+      prompt get_line('calculatortext.txt', 5)
     end
   end
 
@@ -84,29 +85,28 @@ loop do
     if %w(1 2 3 4).include?(operation)
       break
     else
-      prompt "Must choose 1, 2, 3 or 4"
+      prompt get_line('calculatortext.txt', 7)
     end
   end
 
-  prompt "#{operation_to_message(operation)} the two numbers..."
+  prompt get_line('calculatortext.txt', 8) % { :operation => operation_to_message(operation) }
 
-  result =  case operation
-            when '1'
-              number1.to_i + number2.to_i
-            when '2'
-              number1.to_i - number2.to_i
-            when '3'
-              number1.to_i * number2.to_i
-            when '4'
-              number1.to_i / number2.to_i
+  result = case operation
+           when '1'
+             number1.to_i + number2.to_i
+           when '2'
+             number1.to_i - number2.to_i
+           when '3'
+             number1.to_i * number2.to_i
+           when '4'
+             number1.to_f / number2.to_f
+           end
 
-            end
+  prompt get_line('calculatortext.txt', 9) % { :result => result }
 
-  prompt "Your result is #{result}"
-
-  prompt "Do you want to perform another calculation?"
+  prompt get_line('calculatortext.txt', 10) 
   answer = gets.chomp
   break unless answer.downcase.start_with? 'y'
 end
 
-prompt "Thank you for using the calculator #{name}"
+prompt get_line('calculatortext.txt', 11) % { :name => name }
