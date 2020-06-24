@@ -3,9 +3,9 @@ def prompt(message)
 end
 
 def get_line(filename, lineno)
-  File.open(filename, 'r' ) do |getline|
-     (lineno - 1).times {getline.gets}
-     getline.gets
+  File.open(filename, 'r') do |getline|
+    (lineno - 1).times { getline.gets }
+      getline.gets
   end
 end
 
@@ -14,14 +14,14 @@ def integer?(input)
 end
 
 def float?(input)
-  input.to_f.to_s == input || input.to_f.to_s == "#{input + '0'}"
+  input.to_f.to_s == input || input.to_f.to_s == (input + '0')
 end
 
 def valid_number?(input)
   integer?(input) || float?(input)
 end
 
-def operation_to_message(operation)
+def op_to_msg(operation)
   case operation
   when '1'
     'Adding'
@@ -39,7 +39,7 @@ number2 = ''
 name = ''
 operation = ''
 
-operation_prompt = get_line('calculatortext.txt', 12) % { :line => "\n" }
+operation_prompt = get_line('calculatortext.txt', 12) % { line: "\n" }
 
 loop do
   prompt get_line('calculatortext.txt', 1)
@@ -52,7 +52,7 @@ loop do
   end
 end
 
-prompt get_line('calculatortext.txt', 3) % { :name => name }
+prompt get_line('calculatortext.txt', 3) % { name: name }
 
 loop do
   loop do
@@ -89,7 +89,7 @@ loop do
     end
   end
 
-  prompt get_line('calculatortext.txt', 8) % { :operation => operation_to_message(operation) }
+  prompt get_line('calculatortext.txt', 8) % { operation: op_to_msg(operation) }
 
   result = case operation
            when '1'
@@ -102,11 +102,11 @@ loop do
              number1.to_f / number2.to_f
            end
 
-  prompt get_line('calculatortext.txt', 9) % { :result => result }
+  prompt get_line('calculatortext.txt', 9) % { result: result }
 
-  prompt get_line('calculatortext.txt', 10) 
+  prompt get_line('calculatortext.txt', 10)
   answer = gets.chomp
   break unless answer.downcase.start_with? 'y'
 end
 
-prompt get_line('calculatortext.txt', 11) % { :name => name }
+prompt get_line('calculatortext.txt', 11) % { name: name }
