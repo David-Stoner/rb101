@@ -7,6 +7,6 @@
 "Debe elegir 1, 2, 3 o 4"
 "%{operation} los dos números..."
 "Su resultado es %{result}"
-"¿Le gustaría realizar otra operación?"
+"Enter 'S' para realizar otra operación"
 "Gracias por usar la calculadora, %{name}"
 "¿Qué operación le gustaría realizar? %{line} 1) Añadir %{line} 2) Restar %{line} 3) Multiplicar %{line} 4) Dividir"

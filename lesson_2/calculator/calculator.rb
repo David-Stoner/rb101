@@ -1,3 +1,23 @@
+number1 = ''
+number2 = ''
+name = ''
+operation = ''
+language = 'english.txt'
+language_prompt = ''
+
+welcome = 1
+name_get = 2
+hi = 3
+get_number1 = 4
+invalid_number = 5
+get_number2 = 6
+invalid_choice = 7
+calculating = 8
+display_result = 9
+again = 10
+goodbye = 11
+operator_choice = 12
+
 def prompt(message)
   puts "=> #{message}"
 end
@@ -34,12 +54,9 @@ def op_to_msg(operation)
   end
 end
 
-number1 = ''
-number2 = ''
-name = ''
-operation = ''
-language = 'english.txt'
-language_prompt = ''
+def invalid_number_display(language, invalid_number)
+  prompt get_line(language, invalid_number)
+end
 
 loop do
   prompt "1) for english, \n  2) para español"
@@ -51,42 +68,42 @@ language = 'english.txt' if language_prompt == '1'
 language = 'spanish.txt' if language_prompt == '2'
 
 loop do
-  prompt get_line(language, 1)
+  prompt get_line(language, welcome)
   name = gets.chomp
 
   if name.empty?
-    prompt get_line(language, 2)
+    prompt get_line(language, name_get)
   else
     break
   end
 end
 
-prompt get_line(language, 3) % { name: name }
+prompt get_line(language, hi) % { name: name }
 
 loop do
   loop do
-    prompt get_line(language, 4)
+    prompt get_line(language, get_number1)
     number1 = gets.chomp
 
     if valid_number?(number1)
       break
     else
-      prompt get_line(language, 5)
+      invalid_number_display(language, invalid_number)
     end
   end
 
   loop do
-    prompt get_line(language, 6)
+    prompt get_line(language, get_number2)
     number2 = gets.chomp
 
     if valid_number?(number2)
       break
     else
-      prompt get_line(language, 5)
+      invalid_number_display(language, invalid_number)
     end
   end
 
-  prompt get_line(language, 12) % { line: "\n" }
+  prompt get_line(language, operator_choice) % { line: "\n" }
 
   loop do
     operation = gets.chomp
@@ -94,11 +111,11 @@ loop do
     if %w(1 2 3 4).include?(operation)
       break
     else
-      prompt get_line(language, 7)
+      prompt get_line(language, invalid_choice)
     end
   end
 
-  prompt get_line(language, 8) % { operation: op_to_msg(operation) }
+  prompt get_line(language, calculating) % { operation: op_to_msg(operation) }
 
   result = case operation
            when '1'
@@ -111,11 +128,12 @@ loop do
              number1.to_f / number2.to_f
            end
 
-  prompt get_line(language, 9) % { result: result }
+  prompt get_line(language, display_result) % { result: result }
 
-  prompt get_line(language, 10)
-  run = gets.chomp
-  break unless (run.downcase.start_with? 'y') || (run.downcase.start_with? 's')
+  prompt get_line(language, again)
+  go_again = gets.chomp
+  break unless (go_again.downcase == 'y') || (go_again.downcase == 's')
+  system('clear') || system('cls')
 end
 
-prompt get_line(language, 11) % { name: name }
+prompt get_line(language, goodbye) % { name: name }
