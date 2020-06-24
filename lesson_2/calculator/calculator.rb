@@ -2,8 +2,16 @@ def prompt(message)
   puts "=> #{message}"
 end
 
-def valid_number?(num)
-  num.to_i.to_s == num
+def integer?(input)
+  /^-?\d+$/.match(input)
+end
+
+def float?(input)
+  input.to_f.to_s == input || input.to_f.to_s == "#{input + '0'}"
+end
+
+def valid_number?(input)
+  integer?(input) || float?(input)
 end
 
 def operation_to_message(operation)
