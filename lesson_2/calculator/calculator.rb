@@ -3,7 +3,6 @@ MESSAGES = YAML.load_file('messages.yml')
 
 number1 = ''
 number2 = ''
-name = ''
 operation = ''
 language = 'en'
 language_prompt = ''
@@ -34,7 +33,7 @@ def valid_number?(input)
   integer?(input) || float?(input)
 end
 
-def op_to_msg(operation)
+def op_msg(operation)
   case operation
   when '1'
     'Adding'
@@ -88,7 +87,7 @@ def invalid_choice(language)
 end
 
 def calculating_message(language, operation)
-  puts format(messages('calculating', language), operation: op_to_msg(operation))
+  puts format(messages('calculating', language), operation: op_msg(operation))
 end
 
 def display_result(language, result)
@@ -103,7 +102,7 @@ def goodbye(language, name)
   puts format(messages('goodbye', language), name: name)
 end
 
-def pick_language(language_prompt, language)
+def pick_language(language_prompt)
   loop do
     language_select
     language_prompt = gets.chomp
@@ -182,7 +181,7 @@ def another_time(language)
     go_again = gets.chomp
     if (go_again.downcase == 'y') || (go_again.downcase == 's')
       return true
-    elsif (go_again.downcase == 'n')
+    elsif go_again.downcase == 'n'
       return false
     end
   end
