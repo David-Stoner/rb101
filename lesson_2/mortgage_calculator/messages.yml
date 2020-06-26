@@ -1,6 +1,8 @@
 en:
   language_select: "1) for english, \n   2) para español"
   welcome: "Welcome to the loan calculator. What is your name?"
+  greeting: "Very nice to meet you, %{name}"
+  instructions: "Enter your loan amount, followed by the length in years, and finally the annual percentage rate"
   invalid_name: "Make sure to use a valid name."
   enter_loan: "Enter the initial principle amount"
   enter_duration: "Enter the duration of the loan in years"
@@ -11,6 +13,8 @@ en:
   goodbye: "Thank you for using the loan calculator, %{name}"
 es:
   welcome: "Bienvenido a la calculadora de préstamos. ¿Cómo te llamas?"
+  greeting: "Muy agradable conocerte, %{name}."
+  instructions: "Ingrese el monto de su préstamo, seguido de la duración en años, y finalmente la tasa porcentual anual"
   invalid_name: "Asegúrese de usar un nombre válido."
   enter_loan: "Ingrese el importe del principio inicial"
   enter_duration: "Ingrese la duración del préstamo en años"
