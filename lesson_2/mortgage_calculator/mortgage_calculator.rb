@@ -161,7 +161,7 @@ def get_loan_duration(language)
   loop do
     get_duration(language)
     loan_duration = gets.chomp
-    if valid_number?(loan_duration)
+    if integer?(loan_duration) && loan_duration.to_i > 0
       return loan_duration
     else
       invalid_number(language)
