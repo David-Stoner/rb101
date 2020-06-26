@@ -5,7 +5,8 @@ en:
   enter_loan: "Enter the initial principle amount"
   enter_duration: "Enter the duration of the loan in years"
   enter_rate: "Enter the annual percentage rate"
-  result: "Your monthly payment is %{pmnt}"
+  example: "Example: 5 for 5% or 2.5 for 2.5%"
+  result: "Your monthly payment is $%{pmnt}"
   again: "Enter 'Y' to process another loan"
   goodbye: "Thank you for using the loan calculator, %{name}"
 es:
@@ -14,6 +15,7 @@ es:
   enter_loan: "Ingrese el importe del principio inicial"
   enter_duration: "Ingrese la duración del préstamo en años"
   enter_rate: "Ingrese la tasa porcentual anual"
-  result: "Su pago mensual es %{pmnt}"
+  example: "Ejemplo: 5 para 5% o 2.5 para 2.5%"
+  result: "Su pago mensual es $%{pmnt}"
   again: "Ingrese 'S' para procesar otro préstamo"
   goodbye: "Gracias por usar la calculadora de préstamos, %{name}"

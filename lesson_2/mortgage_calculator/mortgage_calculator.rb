@@ -29,7 +29,7 @@ def float?(input)
 end
 
 def valid_number?(input)
-  integer?(input) || float?(input)
+  integer?(input) || float?(input) && input.to_f >= 0
 end
 
 def messages(message, language)
@@ -63,6 +63,7 @@ end
 
 def get_rate(language)
   prompt('enter_rate', language)
+  prompt('example', language)
 end
 
 def invalid_number(language)
@@ -77,8 +78,8 @@ def again(language)
   prompt('again', language)
 end
 
-def goodbye(language)
-  puts format(prompt('goodbye', language), name: user_name.to_s)
+def goodbye(language, user_name)
+  puts format(messages('goodbye', language), name: user_name)
 end
 
 def find_monthly_duration(loan_duration)
@@ -177,4 +178,4 @@ loop do
   system('clear') || system('cls')
 end
 
-goodbye(language)
+goodbye(language, user_name)
