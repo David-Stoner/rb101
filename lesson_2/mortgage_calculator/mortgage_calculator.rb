@@ -1,7 +1,6 @@
 require 'yaml'
 MESSAGES = YAML.load_file('messages.yml')
 
-user_name = ''
 language = ''
 
 loan_amount = 0.0
@@ -23,7 +22,7 @@ def float?(input)
   else
     float = false
   end
-  return float
+  float
 end
 
 def valid_number?(input)
@@ -120,7 +119,7 @@ def do_the_math(loan_amount, loan_duration, annual_rate)
   amortization = find_amortization(amort_denom, monthly_rate)
   find_monthly_payment(loan_amount, amortization)
 end
-  
+
 def select_language
   language_prompt = ''
   loop do
