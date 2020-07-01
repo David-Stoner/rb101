@@ -132,12 +132,8 @@ def find_victory_conditions(choice)
   end
 end
 
-def check_for_tie(player, computer)
-  player == computer
-end
-
 def check_for_round_winner(player, computer)
-  if check_for_tie(player[:choice], computer)
+  if player[:choice] == computer
     'tie'
   elsif player[:victory].include?(computer)
     'player'
