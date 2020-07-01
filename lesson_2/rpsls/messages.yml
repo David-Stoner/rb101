@@ -1,0 +1,34 @@
+game:
+  greeting: "Welcome to Rock, Paper, Scissors, Lizard, Spock!"
+  instructions: "Choose one from Rock, Paper, Scissors, Lizard or Spock"
+  instructions2: "The computer will also choose.\n\n"
+  instructions3: "Scissors cuts Paper covers Rock crushes"
+  instructions4: "Lizard poisons Spock smashes Scissors"
+  instructions5: "decapitates Lizard eats Paper disproves"
+  instructions6: "Spock vaporizes Rock crushes Scissors.\n\n"
+  instructions7: "First to win five rounds takes the match!"
+  choose_one: "Enter 'r' for rock, 'p' for paper, 'sc' for scissors, 'l' for lizard, 'sp' for Spock"
+  choice_error: "That is not a valid choice"
+  display_choices: "Player chose %{player}, Computer chose %{computer}"
+  display_score: "Player has %{pscore}, Computer has %{cscore}!"
+  match_win: "You scored five points! You win the match!"
+  match_loss: "Computer scored five points! Computer wins the match!"
+  another_round: "Press 'Y' to play another round, press 'N' to quit"
+  another_match: "Press 'Y' to play another match, press 'N' to quit"
+tie:
+  nowin: "It's a tie!"
+rock:
+  lizard: "Rock crushes Lizard! %{winner} wins!"
+  scissors: "Rock crushes Scissors! %{winner} wins!"
+paper:
+  rock: "Paper covers Rock! %{winner} wins!"
+  spock: "Paper disproves Spock! %{winner} wins!"
+scissors:
+  paper: "Scissors cuts Paper! %{winner} wins!"
+  lizard: "Scissors decapitates Lizard! %{winner} wins!"
+spock:
+  scissors: "Spock smashes Scissors! %{winner} wins!"
+  rock: "Spock vaporizes Rock! %{winner} wins!"
+lizard:
+  spock: "Lizard poisons Spock! %{winner} wins!"
+  paper: "Lizard eats Paper! %{winner} wins!"
