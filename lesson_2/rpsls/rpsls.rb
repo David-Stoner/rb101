@@ -86,6 +86,10 @@ def display_another_match
   prompt('another_match', 'game')
 end
 
+def display_goodbye
+  prompt('goodbye', 'game')
+end
+
 def check_for_match_win(player, computer)
   if player == 5
     display_win_match
@@ -199,3 +203,4 @@ loop do
   break unless play_another_match
   system('clear') || system('cls')
 end
+display_goodbye

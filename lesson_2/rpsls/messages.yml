@@ -15,6 +15,7 @@ game:
   match_loss: "Computer scored five points! Computer wins the match!"
   another_round: "Press 'Y' to play another round, press 'N' to quit"
   another_match: "Press 'Y' to play another match, press 'N' to quit"
+  goodbye: "Thank you for playing Rock Paper Scissors Lizard Spock!"
 tie:
   nowin: "It's a tie!"
 rock:
