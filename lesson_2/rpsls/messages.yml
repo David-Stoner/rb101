@@ -17,7 +17,7 @@ game:
   another_match: "Press 'Y' to play another match, press 'N' to quit"
   goodbye: "Thank you for playing Rock Paper Scissors Lizard Spock!"
 tie:
-  nowin: "It's a tie!"
+  no_win: "It's a tie!"
 rock:
   lizard: "Rock crushes Lizard! %{winner} wins!"
   scissors: "Rock crushes Scissors! %{winner} wins!"

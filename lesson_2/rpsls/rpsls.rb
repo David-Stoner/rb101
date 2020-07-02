@@ -55,7 +55,7 @@ def display_choice_relationship(choice1, choice2, winner)
 end
 
 def display_tie
-  prompt('nowin', 'tie')
+  prompt('no_win', 'tie')
 end
 
 def display_win_round(player, computer)
