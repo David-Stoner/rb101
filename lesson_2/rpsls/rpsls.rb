@@ -94,7 +94,7 @@ def display_goodbye
   prompt('goodbye', 'game')
 end
 
-def check_for_match_win(player, computer)
+def check_for_match_win?(player, computer)
   if player == WINNING_SCORE
     display_win_match
     true
@@ -150,7 +150,7 @@ def check_for_round_winner(player, computer)
   end
 end
 
-def play_another_round
+def play_another_round?
   loop do
     display_another_round
     go_again = gets.chomp
@@ -164,7 +164,7 @@ def play_another_round
   end
 end
 
-def play_another_match
+def play_another_match?
   loop do
     display_another_match
     go_again = gets.chomp
@@ -200,11 +200,11 @@ loop do
       display_tie
     end
     display_score(player_score, computer_score)
-    break if check_for_match_win(player_score, computer_score)
-    break unless play_another_round
+    break if check_for_match_win?(player_score, computer_score)
+    break unless play_another_round?
     system('clear') || system('cls')
   end
-  break unless play_another_match
+  break unless play_another_match?
   system('clear') || system('cls')
 end
 display_goodbye
