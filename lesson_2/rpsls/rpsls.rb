@@ -2,6 +2,7 @@ require 'yaml'
 MESSAGES = YAML.load_file('messages.yml')
 
 VALID_CHOICES = %w(rock paper scissors lizard spock)
+WINNING_SCORE = 5
 
 player_choice = Hash[choice: 'test', victory: 'test2']
 computer_choice = ''
@@ -29,7 +30,8 @@ def display_instructions
   prompt('instructions4', 'game')
   prompt('instructions5', 'game')
   prompt('instructions6', 'game')
-  prompt('instructions7', 'game')
+  puts format(messages('instructions7', 'game'),
+              winning_score: WINNING_SCORE)
 end
 
 def display_choice_error
@@ -67,11 +69,13 @@ def display_lose_round(player, computer)
 end
 
 def display_win_match
-  prompt('match_win', 'game')
+  puts format(messages('match_win', 'game'),
+              winning_score: WINNING_SCORE)
 end
 
 def display_lose_match
-  prompt('match_loss', 'game')
+  puts format(messages('match_loss', 'game'),
+              winning_score: WINNING_SCORE)
 end
 
 def increment_score(winner_score)
@@ -91,10 +95,10 @@ def display_goodbye
 end
 
 def check_for_match_win(player, computer)
-  if player == 5
+  if player == WINNING_SCORE
     display_win_match
     true
-  elsif computer == 5
+  elsif computer == WINNING_SCORE
     display_lose_match
     true
   else
